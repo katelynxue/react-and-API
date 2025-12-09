@@ -13,10 +13,11 @@ const Home=()=>{
     useEffect(()=>{
         axios.get('https://reqres.in/api/unknown', {headers: {'x-api-key': 'reqres_617aeb79c0dc41f3ad5453e75dbce7fa'}})
             .then(res=>{
-                let companyName = "Katelyn's books";
-                let companyDesc = "We sell all different kinds of books";
+                
+                let companyName = "Katelyns Book store";
+                let compnayDesc = "Have any books you want";
 
-                setData({Company:companyName,Description:companyDesc})
+                setData({Company:companyName,Description:compnayDesc})
                 setColorsData(res.data.data)
         })
         .catch(err=>{
@@ -26,7 +27,9 @@ const Home=()=>{
 
     return(
         <>
-            <Colors/>
+            <h1>{Data.Company}</h1>
+            <p>{Data.Description}</p>
+            <Colors data={colorsData}/>
         </>
     )
 
